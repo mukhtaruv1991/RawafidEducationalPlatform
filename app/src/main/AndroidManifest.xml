@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- الصلاحيات الأساسية -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    
+    <!-- صلاحيات الموقع لتتبع GPS -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    
+    <!-- صلاحيات الكاميرا والملفات -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    
+    <!-- صلاحيات الإشعارات -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    
+    <!-- صلاحيات البصمة -->
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    
+    <!-- صلاحيات الصوت للمساعد الذكي -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    
+    <!-- ميزات الجهاز -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.fingerprint"
+        android:required="false" />
+
+    <application
+        android:name=".RawafidApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.RawafidEducational"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+
+        <!-- شاشة البداية -->
+        <activity
+            android:name=".activities.auth.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.RawafidEducational.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- أنشطة المصادقة -->
+        <activity
+            android:name=".activities.auth.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activities.auth.RegisterActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activities.auth.ForgotPasswordActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- الأنشطة الرئيسية -->
+        <activity
+            android:name=".activities.dashboard.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- أنشطة الطالب -->
+        <activity
+            android:name=".activities.student.StudentDashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.student.SubjectsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.student.AssignmentsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.student.ExamsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.student.GradesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.student.ChatActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activities.student.AITutorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- أنشطة المعلم -->
+        <activity
+            android:name=".activities.teacher.TeacherDashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.teacher.ClassManagementActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.teacher.CreateAssignmentActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activities.teacher.CreateExamActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activities.teacher.GradingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- أنشطة ولي الأمر -->
+        <activity
+            android:name=".activities.parent.ParentDashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.parent.StudentProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.parent.GPSTrackingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- أنشطة الإدارة -->
+        <activity
+            android:name=".activities.admin.AdminDashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.admin.UserManagementActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.admin.CurriculumManagementActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.admin.ReportsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- خدمات الخلفية -->
+        <service
+            android:name=".services.NotificationService"
+            android:exported="false" />
+
+        <service
+            android:name=".services.GPSTrackingService"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+
+        <service
+            android:name=".services.OfflineSyncService"
+            android:exported="false" />
+
+        <!-- مستقبلات البث -->
+        <receiver
+            android:name=".notifications.NotificationReceiver"
+            android:exported="false" />
+
+        <!-- موفر الملفات -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities=".fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- Firebase Messaging Service -->
+        <service
+            android:name=".services.FirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- Google Maps API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_GOOGLE_MAPS_API_KEY" />
+
+    </application>
+
+</manifest>
